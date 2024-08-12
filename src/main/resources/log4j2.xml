@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<Configuration status="WARN">-->
+<!--    <Appenders>-->
+<!--        <Console name="Console" target="SYSTEM_OUT">-->
+<!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5p [%c{1}] - %m%n"/>-->
+<!--        </Console>-->
+<!--    </Appenders>-->
+<!--    <Loggers>-->
+<!--        &lt;!&ndash; Логирование SQL-запросов Hibernate &ndash;&gt;-->
+<!--        <Logger name="org.hibernate.SQL" level="debug" additivity="false">-->
+<!--            <AppenderRef ref="Console"/>-->
+<!--        </Logger>-->
+<!--        &lt;!&ndash; Логирование параметров, передаваемых в SQL-запросы &ndash;&gt;-->
+<!--        <Logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace" additivity="false">-->
+<!--            <AppenderRef ref="Console"/>-->
+<!--        </Logger>-->
+<!--        &lt;!&ndash; Логирование запросов Spring Data JPA &ndash;&gt;-->
+<!--        <Logger name="org.springframework.data.jpa.repository.query" level="debug" additivity="false">-->
+<!--            <AppenderRef ref="Console"/>-->
+<!--        </Logger>-->
+<!--        <Root level="info">-->
+<!--            <AppenderRef ref="Console"/>-->
+<!--        </Root>-->
+<!--    </Loggers>-->
+<!--</Configuration>-->
+<Configuration status="WARN">
+    <!-- Настройки вывода сообщений в stdout -->
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%logger{36}] - %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- Логгирование для com.itreactor.operation_i на уровне INFO -->
+        <Logger name="com/klochkov/t1aop" level="info" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+
+        <!-- Логгирование для org.springframework на уровне WARN -->
+        <Logger name="org.springframework" level="warn" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+
+        <!-- Корневой логгер на уровне INFO -->
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>
